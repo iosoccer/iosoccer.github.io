@@ -20,7 +20,7 @@ h1 {
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 
     &:not(:first-child) {
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     > .label {
@@ -32,6 +32,7 @@ h1 {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 1.25em;
 
         i {
             margin: 0 3px;
@@ -43,11 +44,39 @@ h1 {
         }
     }
 
+    > .mmr-range {
+        text-align: center;
+        color: white;
+        padding-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        i {
+            margin: 0 3px;
+        }
+
+        span {
+            letter-spacing: 3px;
+            margin: 0 5px;
+        }
+
+        span:first-child {
+            flex: 1;
+            text-align: right;
+        }
+
+        span:last-child {
+            flex: 1;
+            text-align: left;
+        }
+    }
+
     &.legendary {
         background: #E8EAF6;
         border-color: #1A237E;
 
-        > .label {
+        > .label, > .mmr-range {
             background: #1A237E;
         }
         
@@ -60,7 +89,7 @@ h1 {
         background: #E0F7FA;
         border-color: #006064;
 
-        > .label {
+        > .label, > .mmr-range {
             background: #006064;
         }
         
@@ -73,7 +102,7 @@ h1 {
         background: #F1F8E9;
         border-color: #33691E;
 
-        > .label {
+        > .label, > .mmr-range {
             background: #33691E;
         }
         
@@ -86,7 +115,7 @@ h1 {
         background: #FFF8E1;
         border-color: #FF6F00;
 
-        > .label {
+        > .label, > .mmr-range {
             background: #FF6F00;
         }
 
@@ -99,7 +128,7 @@ h1 {
         background: #EFEBE9;
         border-color: #3E2723;
 
-        > .label {
+        > .label, > .mmr-range {
             background: #3E2723;
         }
 
@@ -113,10 +142,6 @@ h1 {
         align-items: center;
         padding: 5px 10px;
         border: 2px solid transparent;
-
-        span {
-            color: #546E7A;
-        }
 
         &.header {
             align-items: flex-end;
@@ -138,10 +163,12 @@ h1 {
         .rank {
             width: 60px;
             text-align: center;
+            color: #546E7A;
         }
 
         .avatar {
             width: 25px;
+            color: #546E7A;
         }
 
         .name {
@@ -151,16 +178,19 @@ h1 {
 
         .steam-id {
             width: 200px;
+            color: #546E7A;
         }
 
         .mmr {
             width: 100px;
+            text-align: center;
             color: black;
         }
 
         .matches, .goals, .clean-sheets {
             width: 75px;
             text-align: center;
+            color: #546E7A;
         }
     }
 }

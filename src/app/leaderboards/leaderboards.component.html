@@ -8,7 +8,7 @@
       <i *ngFor="let stars of getStars(i)" class="fa fa-star"></i>
       <span>{{playerGrouping.mmrBracket.label}}</span>
       <i *ngFor="let stars of getStars(i)" class="fa fa-star"></i>
-      </div>
+    </div>
 
     <div class="player header">
       <span class="rank">Rank</span>
@@ -28,6 +28,12 @@
       <span class="matches">{{player.mmrStats.matches}}</span>
       <span class="goals">{{player.mmrStats.goals}}</span>
       <span class="clean-sheets">{{player.mmrStats.cleanSheets}}</span>
+    </div>
+
+    <div class="mmr-range">
+      <span>{{playerGrouping.mmrBracket.prevThreshold}}</span>
+      <span>-</span>
+      <span>{{playerGrouping.mmrBracket.threshold}}</span>
     </div>
 
   </div>

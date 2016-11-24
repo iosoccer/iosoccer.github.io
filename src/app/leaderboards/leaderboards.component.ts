@@ -30,8 +30,9 @@ export class LeaderboardsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.playerGroupings = MMR_BRACKETS.map(mmrBracket => {
-      return new PlayerGrouping(mmrBracket, []);
+    this.playerGroupings = MMR_BRACKETS.map((mmrBracket, i) => {
+      let prevThreshold = i > 0 ? MMR_BRACKETS[i - 1].threshold + 1 : 0;
+      return new PlayerGrouping(new MmrBracket(prevThreshold, mmrBracket.threshold, mmrBracket.name, mmrBracket.label), []);
     });
 
     this.statsService.getPlayerStats().forEach(player => {

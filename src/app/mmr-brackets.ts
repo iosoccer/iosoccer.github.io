@@ -1,6 +1,4 @@
-import { MmrBracket } from './mmr-bracket';
-
-export const MMR_BRACKETS: MmrBracket[] = [
+export const MMR_BRACKETS = [
     {threshold: 1149, name: 'amateur',      label: 'Amateur'},
     {threshold: 1299, name: 'semi-pro',     label: 'Semi-Pro'},
     {threshold: 1499, name: 'professional', label: 'Professional'},

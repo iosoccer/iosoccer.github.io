@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+
+        &:not(:first-child) {
+            margin-top: 15px;
+        }
+
+        span {
+            width: 200px;
+            text-align: right;
+        }
+
+        img {
+            width: 150px;
+            background: lighten(#124364, 20%);
+            border-radius: 5px;
+            margin-left: 25px;
+            padding: 10px;
+        }
+    }
+}

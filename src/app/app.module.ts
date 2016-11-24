@@ -10,6 +10,8 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 import { BlogComponent } from './blog/blog.component';
+import { HeaderComponent } from './header/header.component';
+import { CommunityComponent } from './community/community.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { BlogComponent } from './blog/blog.component';
     MatchesComponent,
     NavigationComponent,
     LeaderboardsComponent,
-    BlogComponent
+    BlogComponent,
+    HeaderComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,
