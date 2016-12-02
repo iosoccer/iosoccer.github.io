@@ -7,10 +7,12 @@ import { MMR_BRACKETS } from '../mmr-brackets';
 class PlayerGrouping {
   mmrBracket: MmrBracket
   players: Player[]
+  startIndex: number
 
-  constructor(mmrBracket: MmrBracket, players: Player[]) {
+  constructor(mmrBracket: MmrBracket, players: Player[], startIndex) {
     this.mmrBracket = mmrBracket;
     this.players = players;
+    this.startIndex = startIndex;
   }
 }
 
@@ -32,7 +34,7 @@ export class LeaderboardsComponent implements OnInit {
 
     this.playerGroupings = MMR_BRACKETS.map((mmrBracket, i) => {
       let prevThreshold = i > 0 ? MMR_BRACKETS[i - 1].threshold + 1 : 0;
-      return new PlayerGrouping(new MmrBracket(prevThreshold, mmrBracket.threshold, mmrBracket.name, mmrBracket.label), []);
+      return new PlayerGrouping(new MmrBracket(prevThreshold, mmrBracket.threshold, mmrBracket.name, mmrBracket.label), [], 0);
     });
 
     this.statsService.getPlayerStats().forEach(player => {
@@ -41,6 +43,11 @@ export class LeaderboardsComponent implements OnInit {
     });
 
     this.playerGroupings.reverse();
+
+    this.playerGroupings.reduce((playerCount, grouping) => {
+      grouping.startIndex = playerCount;
+      return playerCount + grouping.players.length;
+    }, 0);
   }
 
   getStars(index: number) {
