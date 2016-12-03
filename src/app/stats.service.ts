@@ -3,10 +3,10 @@ import { Player } from './player';
 import { Team } from './team';
 import { Match } from './match';
 import { PlayerMmrStats } from './player-mmr-stats';
-import { PlayerMatchStats } from './player-match-stats';
 import { KNOWN_PLAYERS } from './known-players';
 import { STATISTICS } from './statistics';
 import { MmrBracket } from './mmr-bracket';
+import { PlayerMatchStats } from './player-match-stats';
 
 @Injectable()
 export class StatsService {
@@ -29,13 +29,12 @@ export class StatsService {
 
       let teams = ['home', 'away'].map(teamName => {
 
-        let players = match.teams[teamName].players.map(teamPlayer => {
+        let playerMatchStats = match.teams[teamName].players.map(teamPlayer => {
           let player = this.players.find(x => x.steamId == teamPlayer.steamId);
-          player.matchStats = new PlayerMatchStats(teamPlayer.mmr, teamPlayer.goals);
-          return player;
+          return new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals);
         });
 
-        return new Team('Mix', match.teams[teamName].goals, players);
+        return new Team('Mix', match.teams[teamName].goals, match.teams[teamName].avgMmr, match.teams[teamName].mmrChange, playerMatchStats);
       })
 
       return new Match(teams[0], teams[1], match.startTime, match.endTime);

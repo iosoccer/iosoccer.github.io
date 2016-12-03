@@ -47,13 +47,41 @@ i {
         font-size: 1.5em;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background: #263238;
         color: white;
         border-radius: 5px;
         margin: 20px 0;
+        padding: 0 5px;
+
+        .mmr {
+            font-size: 0.7em;
+            color: black;
+            background: #CFD8DC;
+            border-radius: 3px;
+
+            .average {
+                padding: 1px 3px;
+            }
+
+            .change {
+                background: #F44336;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+                padding: 0 3px;
+
+                &.positive {
+                    background: #4CAF50;
+
+                    &::before {
+                        content: '+'
+                    }
+                }
+            }
+        }
 
         .team-name {
-            margin: 0 10px;
+            margin: 0 15px;
         }
 
         .goals {

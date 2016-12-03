@@ -24,8 +24,8 @@ export class MatchesComponent implements OnInit {
     this.matches = this.statsService.getMatchStats();
   }
 
-  getPlayerGoals(player) {
-    return Array(player.matchStats.goals).fill(1);
+  getPlayerGoals(playerMatchStats) {
+    return Array(playerMatchStats.goals).fill(1);
   }
 
 }

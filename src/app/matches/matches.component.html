@@ -6,20 +6,28 @@
       <span><i class="time-icon fa fa-clock-o"></i>{{match.startTime | date:'HH:mm'}} - {{match.endTime | date:'HH:mm'}}</span>
     </div>
     <div class="score">
+      <span class="mmr">
+        <span class="average">Ø{{match.homeTeam.avgMmr}}</span>
+        <span class="change" [ngClass]="{positive: match.homeTeam.mmrChange >= 0}">{{match.homeTeam.mmrChange}}</span>
+      </span>
       <span class="team-name">{{match.homeTeam.name}}</span>
       <div class="goals">
-        <span>{{match.homeTeam.goals}}</span>
+        <span class="name">{{match.homeTeam.goals}}</span>
         <span class="separator">-</span>
-        <span>{{match.awayTeam.goals}}</span>
+        <span class="name">{{match.awayTeam.goals}}</span>
       </div>
       <span class="team-name">{{match.awayTeam.name}}</span>
+      <span class="mmr">
+        <span class="average">Ø{{match.awayTeam.avgMmr}}</span>
+        <span class="change" [ngClass]="{positive: match.awayTeam.mmrChange >= 0}">{{match.awayTeam.mmrChange}}</span>
+      </span>
     </div>
     <div class="teams">
       <ol *ngFor="let team of [match.homeTeam, match.awayTeam]" class="team">
-        <li *ngFor="let player of team.players" class="player">
-          <span class="mmr">{{player.matchStats.mmr}}</span>
-          <span class="name">{{player.name}}</span>
-          <span class="goals"><i *ngFor="let goal of getPlayerGoals(player)" class="fa fa-soccer-ball-o"></i></span>
+        <li *ngFor="let playerMatchStats of team.playerMatchStats" class="player">
+          <span class="mmr">{{playerMatchStats.mmr}}</span>
+          <span class="name">{{playerMatchStats.player.name}}</span>
+          <span class="goals"><i *ngFor="let goal of getPlayerGoals(playerMatchStats)" class="fa fa-soccer-ball-o"></i></span>
         </li>
       </ol>
     </div>

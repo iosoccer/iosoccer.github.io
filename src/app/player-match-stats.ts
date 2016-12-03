@@ -1,8 +1,12 @@
+import { Player } from './player';
+
 export class PlayerMatchStats {
-    mmr: number
+    player: Player
+    mmr: string
     goals: number
 
-    constructor(mmr: number, goals: number) {
+    constructor(player: Player, mmr: string, goals: number) {
+        this.player = player;
         this.mmr = mmr;
         this.goals = goals;
     }

@@ -143,48 +143,52 @@ matchFiles.forEach(fileName => {
 
     let getAvgMmr = team => matchData.teams[team].players.reduce((totalMmr, player) => totalMmr + playerData[player.steamId].mmr, 0) / matchData.teams[team].players.length;
 
-    matchData.teams[Team.HOME].mmrDiff = getAvgMmr(Team.HOME) - getAvgMmr(Team.AWAY);
-    matchData.teams[Team.AWAY].mmrDiff = matchData.teams[Team.HOME].mmrDiff * -1;
+    matchData.teams[Team.HOME].avgMmr = Math.trunc(getAvgMmr(Team.HOME));
+    matchData.teams[Team.AWAY].avgMmr = Math.trunc(getAvgMmr(Team.AWAY));
+    matchData.teams[Team.HOME].mmrDiff = Math.trunc(matchData.teams[Team.HOME].avgMmr - matchData.teams[Team.AWAY].avgMmr);
+    matchData.teams[Team.AWAY].mmrDiff = Math.trunc(matchData.teams[Team.HOME].mmrDiff * -1);
 
     [Team.HOME, Team.AWAY].forEach(team => {
 
         let opponent = team == 'home' ? 'away' : 'home';
-        let mmrDiff = matchData.teams[team].mmrDiff;
-        let result = matchData.teams[team].result;
-        let points = MMR_DIFF_POINTS.find(points => points.threshold >= mmrDiff);
+        let points = MMR_DIFF_POINTS.find(points => points.threshold >= matchData.teams[team].mmrDiff);
+
+        let mmrChange = 0;
+
+        // Result points
+        mmrChange += (() => {
+            switch (matchData.teams[team].result) {
+                case MatchResult.WIN: return points.win;
+                case MatchResult.LOSS: return points.loss;
+                default: return points.draw;
+            }
+        })();
+
+        // Clean sheet points
+        if (matchData.teams[opponent].goals == 0)
+            mmrChange += points.cleanSheet;
+
+        let goalDiff = matchData.teams[team].goals - matchData.teams[opponent].goals;
+
+        // Two goal advantage points
+        if (goalDiff >= 2)
+            mmrChange += Math.trunc(goalDiff / 2) * points.twoGoalAdv;
+
+        // Two goal deficit points
+        if (matchData.teams[team].goals - matchData.teams[opponent].goals <= -2)
+            mmrChange += Math.abs(Math.trunc(goalDiff / 2)) * points.twoGoalDef;
+
+        matchData.teams[team].mmrChange = mmrChange;
 
         matchData.teams[team].players.forEach(player => {
 
-            let totalData = playerData[player.steamId];
+            player.mmr = playerData[player.steamId].mmr;
 
-            // Result points
-            totalData.mmr += (() => {
-                switch (result) {
-                    case MatchResult.WIN: return points.win;
-                    case MatchResult.LOSS: return points.loss;
-                    default: return points.draw;
-                }
-            })();
-
-            player.mmr = totalData.mmr;
-
-            // Clean sheet points
-            if (matchData.teams[opponent].goals == 0)
-                totalData.mmr += points.cleanSheet;
-
-            let goalDiff = matchData.teams[team].goals - matchData.teams[opponent].goals;
-
-            // Two goal advantage points
-            if (goalDiff >= 2)
-                totalData.mmr += Math.trunc(goalDiff / 2) * points.twoGoalAdv;
-
-            // Two goal deficit points
-            if (matchData.teams[team].goals - matchData.teams[opponent].goals <= -2)
-                totalData.mmr += Math.abs(Math.trunc(goalDiff / 2)) * points.twoGoalDef;
+            playerData[player.steamId].mmr += mmrChange;
 
             // Abandon points
             if (player.abandon)
-                totalData.mmr += points.abandon;
+                playerData[player.steamId].mmr += points.abandon;
         });
     });
 });
