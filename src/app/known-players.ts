@@ -47,13 +47,13 @@ export const KNOWN_PLAYERS = [
 	{steamId: 'STEAM_0:0:1608509',       name: 'Orius'},
 	{steamId: 'STEAM_0:1:7605279',       name: 'Demented'},
 	{steamId: 'STEAM_0:0:26082793',      name: 'Jase'},
-	{steamId: 'STEAM_0:0:13346995',      name: 'panther'},
+	{steamId: 'STEAM_0:0:13346995',      name: 'panther (1)'},
 	{steamId: 'STEAM_0:1:128662',        name: 'GINIXXX'},
 	{steamId: 'STEAM_0:0:16735574',      name: 'Choupo'},
 	{steamId: 'STEAM_0:0:83871037',      name: 'Mangles'},
 	{steamId: 'STEAM_0:1:7116806',       name: 'Lua'},
 	{steamId: 'STEAM_0:1:3760747',       name: 'zaLir'},
-	{steamId: 'STEAM_0:1:180695954',     name: 'panther(1)'},
+	{steamId: 'STEAM_0:1:180695954',     name: 'panther'},
 	{steamId: 'STEAM_0:0:31446984',	 	 name: 'Kaiser'}
 	
 ];
