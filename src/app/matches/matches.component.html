@@ -7,7 +7,7 @@
     </div>
     <div class="score">
       <span class="mmr">
-        <span class="average">Ø{{match.homeTeam.avgMmr}}</span>
+        <span class="average">{{match.homeTeam.avgMmr}}</span>
         <span class="change" [ngClass]="{positive: match.homeTeam.mmrChange >= 0}">{{match.homeTeam.mmrChange}}</span>
       </span>
       <span class="team-name">{{match.homeTeam.name}}</span>
@@ -18,8 +18,8 @@
       </div>
       <span class="team-name">{{match.awayTeam.name}}</span>
       <span class="mmr">
-        <span class="average">Ø{{match.awayTeam.avgMmr}}</span>
         <span class="change" [ngClass]="{positive: match.awayTeam.mmrChange >= 0}">{{match.awayTeam.mmrChange}}</span>
+        <span class="average">{{match.awayTeam.avgMmr}}</span>
       </span>
     </div>
     <div class="teams">

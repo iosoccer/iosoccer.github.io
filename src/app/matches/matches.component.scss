@@ -24,11 +24,11 @@ i {
 .match {
     margin: 10px;
     padding: 15px;
-    background: #ECEFF1;
+    background: lighten(#ECEFF1, 5%);
     display: flex;
     flex-direction: column;
     width: 500px;
-    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 
     .date {
         display: flex;
@@ -56,22 +56,23 @@ i {
 
         .mmr {
             font-size: 0.7em;
-            color: black;
-            background: #CFD8DC;
-            border-radius: 3px;
+            color: white;
+            font-size: 0.7em;
 
             .average {
                 padding: 1px 3px;
+                color: #CFD8DC;
             }
 
             .change {
-                background: #F44336;
-                border-top-right-radius: 3px;
-                border-bottom-right-radius: 3px;
-                padding: 0 3px;
+                background: #C62828;
+                border-radius: 3px;
+                padding: 0 7px;
+                text-align: center;
+                font-weight: bold;
 
                 &.positive {
-                    background: #4CAF50;
+                    background: #2E7D32;
 
                     &::before {
                         content: '+'
@@ -82,11 +83,18 @@ i {
 
         .team-name {
             margin: 0 15px;
+            flex: 1;
+            text-align: center;
+            font-size: 0.85em;
+            font-style: italic;
         }
 
         .goals {
-            flex: 1;
             text-align: center;
+            padding: 5px 10px;
+            margin: -5px 0;
+            background: #263238;
+            border-radius: 10px;
 
             .separator {
                 margin: 0 10px;
@@ -104,6 +112,10 @@ i {
 
             &:first-child {
                 align-items: flex-start;
+
+                .mmr {
+                    margin-right: 5px;
+                }
             }
 
             &:last-child {
@@ -113,6 +125,10 @@ i {
                 .player {
                     flex-direction: row-reverse;
                 }
+
+                .mmr {
+                    margin-left: 5px;
+                }
             }
 
             .player {
@@ -120,9 +136,14 @@ i {
                 align-items: center;
 
                 .mmr {
-                    background: #CFD8DC;
+                    background: #ECEFF1;
+                    color: #546E7A;
                     border-radius: 3px;
-                    padding: 1px 3px;
+                    padding: 3px 5px 3px 3px;
+                    width: 40px;
+                    text-align: right;
+                    font-weight: bold;
+                    font-size: 0.9em;
                 }
 
                 .name {
