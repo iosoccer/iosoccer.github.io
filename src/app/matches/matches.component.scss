@@ -34,6 +34,10 @@ i {
         display: flex;
         justify-content: space-between;
 
+        span {
+            margin: 0 5px;
+        }
+
         .date-icon {
             margin-right: 5px;
         }
@@ -91,13 +95,25 @@ i {
 
         .goals {
             text-align: center;
-            padding: 5px 10px;
-            margin: -5px 0;
+            padding: 5px;
+            margin: 0 0 -20px 0;
             background: #263238;
-            border-radius: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
 
             .separator {
                 margin: 0 10px;
+            }
+
+            .total {
+            }
+
+            .first-half {
+                font-size: 0.5em;
+                height: 15px;
+                margin-top: 5px;
+                color: #CFD8DC;
             }
         }
     }
@@ -112,10 +128,6 @@ i {
 
             &:first-child {
                 align-items: flex-start;
-
-                .mmr {
-                    margin-right: 5px;
-                }
             }
 
             &:last-child {
@@ -124,10 +136,6 @@ i {
 
                 .player {
                     flex-direction: row-reverse;
-                }
-
-                .mmr {
-                    margin-left: 5px;
                 }
             }
 
@@ -144,6 +152,14 @@ i {
                     text-align: right;
                     font-weight: bold;
                     font-size: 0.9em;
+                }
+
+                .position {
+                    width: 20px;
+                    font-weight: bold;
+                    font-size: 0.75em;
+                    text-align: center;
+                    margin: 0 5px;
                 }
 
                 .name {

@@ -1,29 +1,39 @@
-:host {
+.platforms {
     display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+    flex-wrap: wrap;
 
     a {
         text-decoration: none;
         color: black;
         display: flex;
         align-items: center;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+        background: lighten(#ECEFF1, 5%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
 
         &:not(:first-child) {
             margin-top: 15px;
         }
 
-        span {
-            width: 200px;
-            text-align: right;
-        }
-
-        img {
+        div {
             width: 150px;
             background: lighten(#124364, 20%);
             border-radius: 5px;
             margin-left: 25px;
+            margin: 20px;
             padding: 10px;
+            height: 75px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                max-width: 100%;
+            }
         }
     }
 }

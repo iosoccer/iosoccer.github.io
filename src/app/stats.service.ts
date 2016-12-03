@@ -31,10 +31,12 @@ export class StatsService {
 
         let playerMatchStats = match.teams[teamName].players.map(teamPlayer => {
           let player = this.players.find(x => x.steamId == teamPlayer.steamId);
-          return new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals);
+          return new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals, teamPlayer.position, teamPlayer.isSoloKeeper);
         });
 
-        return new Team('Mix', match.teams[teamName].goals, match.teams[teamName].avgMmr, match.teams[teamName].mmrChange, playerMatchStats);
+        let team = match.teams[teamName];
+
+        return new Team('Mix', team.goals, team.firstHalfGoals, team.avgMmr, team.mmrChange, playerMatchStats);
       })
 
       return new Match(teams[0], teams[1], match.startTime, match.endTime);

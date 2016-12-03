@@ -32,6 +32,8 @@ const Team = {
     AWAY: 'away'
 };
 
+const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CM', 'CF', 'LW', 'RW'];
+
 let matchDataList = [];
 
 let playerData = {};
@@ -55,7 +57,8 @@ matchFiles.forEach(fileName => {
     rawMatchData.teams.forEach(team => {
         matchData.teams[team.matchTotal.side] = {
             players: [],
-            goals: team.matchTotal.statistics[indices.goals]
+            goals: team.matchTotal.statistics[indices.goals],
+            firstHalfGoals: team.matchPeriods[0].statistics[indices.goals]
         };
     });
 
@@ -92,10 +95,17 @@ matchFiles.forEach(fileName => {
         let team = player.matchPeriodData[0].info.team;
         let opponent = team == 'home' ? 'away' : 'home';
 
-        let isSoloKeeper = false;//player.matchPeriodData.every(data => data.info.position == 'GK');
+        let durations = player.matchPeriodData.reduce((durations, data) => {
+            durations[data.info.position] = (durations[data.info.position] || 0) + (data.info.endSecond - data.info.startSecond);
+            return durations;
+        }, {});
+
+        let position = Object.keys(durations).sort((a, b) => durations[b] - durations[a])[0];
+        let isSameTeam = player.matchPeriodData.every(data => data.info.team == team);
+        let isSoloKeeper = !isSameTeam && player.matchPeriodData.every(data => data.info.position == 'GK');
 
         // Return if player has changed team during match
-        if (!isSoloKeeper && !player.matchPeriodData.every(data => data.info.team == team)) return;
+        if (!isSoloKeeper && !isSameTeam) return;
 
         // Return if player hasn't played through most of the match
         if (player.matchPeriodData.reduce((seconds, data) => seconds + (data.info.endSecond - data.info.startSecond), 0) < MIN_MATCH_MINUTES * 60) return;
@@ -117,6 +127,7 @@ matchFiles.forEach(fileName => {
         let data = {
             steamId,
             abandon: !player.matchPeriodData.find(data => data.info.endSecond == matchEndSecond),
+            position,
             isSoloKeeper
         }
 
@@ -143,6 +154,9 @@ matchFiles.forEach(fileName => {
         totalData.conceded = (totalData.conceded || 0) + matchData.teams[opponent].goals;
 
         matchData.teams[team].players.push(data);
+
+        if (isSoloKeeper)
+            matchData.teams[opponent].players.push(data);
     });
 
     let getAvgMmr = team => matchData.teams[team].players.reduce((totalMmr, player) => totalMmr + playerData[player.steamId].mmr, 0) / matchData.teams[team].players.length;
@@ -186,14 +200,21 @@ matchFiles.forEach(fileName => {
 
         matchData.teams[team].players.forEach(player => {
 
-            player.mmr = playerData[player.steamId].mmr;
+            if (!player.isSoloKeeper || team == 'home') player.mmr = playerData[player.steamId].mmr;
 
-            playerData[player.steamId].mmr += mmrChange;
+            if (player.isSoloKeeper) {
+                if (matchData.teams[opponent].firstHalfGoals == 0) playerData[player.steamId].mmr += points.cleanSheet;
+                if (matchData.teams[opponent].goals == 0) playerData[player.steamId].mmr += points.cleanSheet;
+            } else {
+                playerData[player.steamId].mmr += mmrChange;
+            }
 
             // Abandon points
             if (player.abandon)
                 playerData[player.steamId].mmr += points.abandon;
         });
+
+        matchData.teams[team].players.sort((a, b) => POSITIONS.indexOf(b.position) - POSITIONS.indexOf(a.position));
     });
 });
 

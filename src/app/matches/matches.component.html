@@ -12,9 +12,16 @@
       </span>
       <span class="team-name">{{match.homeTeam.name}}</span>
       <div class="goals">
-        <span class="name">{{match.homeTeam.goals}}</span>
-        <span class="separator">-</span>
-        <span class="name">{{match.awayTeam.goals}}</span>
+        <div class="total">
+          <span class="name">{{match.homeTeam.goals}}</span>
+          <span class="separator">-</span>
+          <span class="name">{{match.awayTeam.goals}}</span>
+        </div>
+        <div class="first-half">
+          <span class="name">{{match.homeTeam.firstHalfGoals}}</span>
+          <span class="separator">-</span>
+          <span class="name">{{match.awayTeam.firstHalfGoals}}</span>       
+        </div>
       </div>
       <span class="team-name">{{match.awayTeam.name}}</span>
       <span class="mmr">
@@ -25,9 +32,11 @@
     <div class="teams">
       <ol *ngFor="let team of [match.homeTeam, match.awayTeam]" class="team">
         <li *ngFor="let playerMatchStats of team.playerMatchStats" class="player">
+          <span class="position">{{playerMatchStats.position}}</span>
           <span class="mmr">{{playerMatchStats.mmr}}</span>
           <span class="name">{{playerMatchStats.player.name}}</span>
-          <span class="goals"><i *ngFor="let goal of getPlayerGoals(playerMatchStats)" class="fa fa-soccer-ball-o"></i></span>
+          <span class="goals" *ngIf="playerMatchStats.goals"><i *ngFor="let goal of getPlayerGoals(playerMatchStats)" class="fa fa-soccer-ball-o"></i></span>
+          <i class="solo-keeper" *ngIf="playerMatchStats.isSoloKeeper" class="fa fa-support"></i>
         </li>
       </ol>
     </div>
