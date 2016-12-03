@@ -51,7 +51,7 @@ i {
         background: #263238;
         color: white;
         border-radius: 5px;
-        margin: 20px 0;
+        margin: 15px 0;
         padding: 0 5px;
 
         .mmr {
@@ -70,6 +70,7 @@ i {
                 padding: 0 7px;
                 text-align: center;
                 font-weight: bold;
+                font-style: italic;
 
                 &.positive {
                     background: #2E7D32;
@@ -86,7 +87,6 @@ i {
             flex: 1;
             text-align: center;
             font-size: 0.85em;
-            font-style: italic;
         }
 
         .goals {

@@ -16,7 +16,11 @@
       <span class="name">Name</span>
       <span class="mmr">MMR</span>
       <span class="matches">Matches</span>
+      <span class="wins">Wins</span>
+      <span class="draws">Draws</span>
+      <span class="losses">Losses</span>
       <span class="goals">Ø Team Goals</span>
+      <span class="conceded">Ø Team Conceded</span>
       <span class="clean-sheets">Ø Team Clean Sheets</span>
     </div>
 
@@ -26,7 +30,11 @@
       <span class="name">{{player.name}}</span>
       <span class="mmr">{{player.mmrStats.mmr}}</span>
       <span class="matches">{{player.mmrStats.matches}}</span>
+      <span class="wins">{{player.mmrStats.wins}}</span>
+      <span class="draws">{{player.mmrStats.draws}}</span>
+      <span class="losses">{{player.mmrStats.losses}}</span>
       <span class="goals">{{(player.mmrStats.goals / player.mmrStats.matches).toFixed(1)}}</span>
+      <span class="conceded">{{(player.mmrStats.conceded / player.mmrStats.matches).toFixed(1)}}</span>
       <span class="clean-sheets">{{(player.mmrStats.cleanSheets / player.mmrStats.matches).toFixed(1)}}</span>
     </div>
 

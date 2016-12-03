@@ -92,8 +92,10 @@ matchFiles.forEach(fileName => {
         let team = player.matchPeriodData[0].info.team;
         let opponent = team == 'home' ? 'away' : 'home';
 
+        let isSoloKeeper = false;//player.matchPeriodData.every(data => data.info.position == 'GK');
+
         // Return if player has changed team during match
-        if (!player.matchPeriodData.every(data => data.info.team == team)) return;
+        if (!isSoloKeeper && !player.matchPeriodData.every(data => data.info.team == team)) return;
 
         // Return if player hasn't played through most of the match
         if (player.matchPeriodData.reduce((seconds, data) => seconds + (data.info.endSecond - data.info.startSecond), 0) < MIN_MATCH_MINUTES * 60) return;
@@ -113,8 +115,9 @@ matchFiles.forEach(fileName => {
         let totalData = playerData[steamId];
 
         let data = {
-            steamId: steamId,
+            steamId,
             abandon: !player.matchPeriodData.find(data => data.info.endSecond == matchEndSecond),
+            isSoloKeeper
         }
 
         totalData.name = player.info.name;
@@ -136,7 +139,8 @@ matchFiles.forEach(fileName => {
             data[stat] = player.matchPeriodData.reduce((statSum, periodData) => statSum + periodData.statistics[indices[stat]], 0);
         });
 
-        totalData['goals'] = (totalData['goals'] || 0) + matchData.teams[team].goals;
+        totalData.goals = (totalData.goals || 0) + matchData.teams[team].goals;
+        totalData.conceded = (totalData.conceded || 0) + matchData.teams[opponent].goals;
 
         matchData.teams[team].players.push(data);
     });
