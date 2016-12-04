@@ -1,5 +1,3 @@
-<h1>Leaderboards</h1>
-
 <div class="player-groupings">
 
   <div *ngFor="let playerGrouping of playerGroupings; let i = index" class="player-grouping {{playerGrouping.mmrBracket.name}}">
@@ -12,7 +10,7 @@
 
     <div class="player header">
       <span class="rank">Rank</span>
-      <span class="avatar"></span>
+      <span class="club">Club</span>
       <span class="name">Name</span>
       <span class="mmr">MMR</span>
       <span class="matches">Matches</span>
@@ -26,7 +24,7 @@
 
     <div *ngFor="let player of playerGrouping.players; let rank = index" class="player">
       <span class="rank">{{playerGrouping.startIndex + rank + 1}}.</span>
-      <span class="avatar fa fa-user-circle"></span>
+      <span class="club"><img *ngIf="player.club" src="{{player.club.crest}}"></span>
       <span class="name">{{player.name}}</span>
       <span class="mmr">{{player.mmrStats.mmr}}</span>
       <span class="matches">{{player.mmrStats.matches}}</span>

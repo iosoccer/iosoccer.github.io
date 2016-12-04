@@ -4,11 +4,6 @@
     align-items: center;
 }
 
-h1 {
-    width: 100%;
-    text-align: center;
-}
-
 .player-groupings {
     display: flex;
     flex-direction: column;
@@ -141,8 +136,8 @@ h1 {
     .player {
         display: flex;
         align-items: center;
-        padding: 5px 10px;
-        border: 2px solid transparent;
+        height: 35px;
+        padding: 0 10px;
 
         &.header {
             align-items: flex-end;
@@ -161,7 +156,7 @@ h1 {
         &:not(.header) {
 
             &:hover {
-                background: #ECEFF1;
+                background: white;
             }
         }
 
@@ -171,15 +166,22 @@ h1 {
             color: #546E7A;
         }
 
-        .avatar {
-            width: 25px;
-            color: #546E7A;
+        .club {
+            width: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            img {
+                height: 24px;
+            }
         }
 
         .name {
             width: 175px;
             color: black;
             font-weight: bold;
+            margin-left: 5px;
         }
 
         .mmr {

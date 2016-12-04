@@ -1,0 +1,22 @@
+<section class="clubs">
+
+  <div class="club" *ngFor="let club of clubs">
+
+    <div class="left">
+      <div class="crest"><img src="{{club.crest}}"></div>
+      <div class="code">{{club.code}}</div>
+    </div>
+
+    <div class="right">
+      <div class="full-name">{{club.fullName}}</div>
+      <div class="players">
+         <div class="player" *ngFor="let player of club.players">
+          <span class="role"><i *ngIf="player.isCaptain" class="fa fa-copyright"></i></span>
+          <span class="name">{{player.name}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

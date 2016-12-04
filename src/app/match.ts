@@ -1,12 +1,12 @@
-import { Team } from './team';
+import { MatchTeam } from './match-team';
 
 export class Match {
-    homeTeam: Team
-    awayTeam: Team
+    homeTeam: MatchTeam
+    awayTeam: MatchTeam
     startTime: Date
     endTime: Date
 
-    constructor(homeTeam: Team, awayTeam: Team, startTime: number, endTime: number) {
+    constructor(homeTeam: MatchTeam, awayTeam: MatchTeam, startTime: number, endTime: number) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.startTime = new Date(startTime);

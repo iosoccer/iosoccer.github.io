@@ -1,6 +1,6 @@
 import { PlayerMatchStats } from './player-match-stats';
 
-export class Team {
+export class MatchTeam {
     name: string
     goals: number
     firstHalfGoals: number

@@ -12,6 +12,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { CommunityComponent } from './community/community.component';
+import { ClubsComponent } from './clubs/clubs.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommunityComponent } from './community/community.component';
     LeaderboardsComponent,
     BlogComponent,
     HeaderComponent,
-    CommunityComponent
+    CommunityComponent,
+    ClubsComponent
   ],
   imports: [
     BrowserModule,

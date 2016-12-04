@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player';
-import { Team } from '../team';
+import { MatchTeam } from '../match-team';
 import { Match } from '../match';
 import { PlayerMatchStats } from '../player-match-stats';
 import { StatsService } from '../stats.service';
