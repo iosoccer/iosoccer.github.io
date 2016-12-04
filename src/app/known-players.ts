@@ -55,5 +55,7 @@ export const KNOWN_PLAYERS = [
 	{steamId: 'STEAM_0:1:3760747',       name: 'zaLir'},
 	{steamId: 'STEAM_0:1:180695954',     name: 'panther'},
 	{steamId: 'STEAM_0:0:31446984',	 	 name: 'Kaiser'}
+	{steamId: 'STEAM_0:0:3829635',	 	 name: 'Km'}
+	{steamId: 'STEAM_0:1:13281024',	 	 name: 'Quality'}
 	
 ];
