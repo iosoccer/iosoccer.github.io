@@ -203,8 +203,16 @@ matchFiles.forEach(fileName => {
             if (!player.isSoloKeeper || team == 'home') player.mmr = playerData[player.steamId].mmr;
 
             if (player.isSoloKeeper) {
-                if (matchData.teams[opponent].firstHalfGoals == 0) playerData[player.steamId].mmr += points.cleanSheet;
-                if (matchData.teams[opponent].goals == 0) playerData[player.steamId].mmr += points.cleanSheet;
+
+                if (matchData.teams[opponent].firstHalfGoals == 0)
+                    playerData[player.steamId].mmr += points.cleanSheet;
+
+                if (matchData.teams[opponent].goals - matchData.teams[opponent].firstHalfGoals == 0)
+                    playerData[player.steamId].mmr += points.cleanSheet;
+
+                if (matchData.teams[opponent].goals == 0)
+                    playerData[player.steamId].mmr += points.cleanSheet;
+                    
             } else {
                 playerData[player.steamId].mmr += mmrChange;
             }
