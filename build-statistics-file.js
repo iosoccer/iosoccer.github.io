@@ -5,7 +5,7 @@ const MIN_MATCH_MINUTES = 60;
 
 const START_MMR = 1200;
 
-const SOLO_KEEEPER_START_POINTS = 12;
+const SOLO_KEEEPER_START_POINTS = 10;
 
 const MMR_DIFF_POINTS = [
     {threshold: -150,   win: 21,    draw: 8,    loss: -9,   cleanSheet: 5,  twoGoalAdv: 3,  twoGoalDef: -1, abandon: -10, soloKeeperGoalDef: -1},
