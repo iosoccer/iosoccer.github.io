@@ -5,16 +5,16 @@ const MIN_MATCH_MINUTES = 60;
 
 const START_MMR = 1200;
 
-const SOLO_KEEEPER_START_POINTS = 10;
+const SOLO_KEEEPER_START_POINTS = 9;
 
 const MMR_DIFF_POINTS = [
-    {threshold: -150,   win: 21,    draw: 8,    loss: -9,   cleanSheet: 5,  twoGoalAdv: 3,  twoGoalDef: -1, abandon: -10, soloKeeperGoalDef: -1},
-    {threshold: -100,   win: 19,    draw: 6,    loss: -11,  cleanSheet: 5,  twoGoalAdv: 3,  twoGoalDef: -1, abandon: -10, soloKeeperGoalDef: -1},
+    {threshold: -150,   win: 21,    draw: 8,    loss: -9,   cleanSheet: 5,  twoGoalAdv: 3,  twoGoalDef: -1, abandon: -10, soloKeeperGoalDef: -2},
+    {threshold: -100,   win: 19,    draw: 6,    loss: -11,  cleanSheet: 5,  twoGoalAdv: 3,  twoGoalDef: -1, abandon: -10, soloKeeperGoalDef: -2},
     {threshold: -50,    win: 17,    draw: 4,    loss: -13,  cleanSheet: 3,  twoGoalAdv: 2,  twoGoalDef: -2, abandon: -10, soloKeeperGoalDef: -3},
     {threshold: 50,     win: 15,    draw: 2,    loss: -15,  cleanSheet: 3,  twoGoalAdv: 2,  twoGoalDef: -2, abandon: -10, soloKeeperGoalDef: -3},
     {threshold: 100,    win: 13,    draw: 0,    loss: -17,  cleanSheet: 3,  twoGoalAdv: 2,  twoGoalDef: -2, abandon: -10, soloKeeperGoalDef: -3},
-    {threshold: 150,    win: 11,    draw: -4,   loss: -19,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -3, abandon: -10, soloKeeperGoalDef: -5},
-    {threshold: 1000,   win: 9,     draw: -6,   loss: -21,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -3, abandon: -10, soloKeeperGoalDef: -5}
+    {threshold: 150,    win: 11,    draw: -4,   loss: -19,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -3, abandon: -10, soloKeeperGoalDef: -4},
+    {threshold: 1000,   win: 9,     draw: -6,   loss: -21,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -3, abandon: -10, soloKeeperGoalDef: -4}
 ];
 
 const STATS = [
