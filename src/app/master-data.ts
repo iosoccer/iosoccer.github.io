@@ -80,7 +80,7 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:0:3829635',	 	 name: 'Km',				clubId: 2},
 	{steamId: 'STEAM_0:1:10938960',	 	 name: 'roq',				clubId: 2},
 	{steamId: 'STEAM_0:1:13281024',	 	 name: 'Quality'},	
-	{steamId: 'STEAM_0:1:14849456',	 	 name: 'shagwa',			clubId: 1,		isCaptain: true}
+	{steamId: 'STEAM_0:1:14849456',	 	 name: 'shagwa',			clubId: 2,		isCaptain: true}
 	
 ];
 
