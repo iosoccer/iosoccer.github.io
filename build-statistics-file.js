@@ -18,7 +18,7 @@ const MMR_DIFF_POINTS = [
     {threshold: 300,    win: 11,    draw: -2,   loss: -19,  cleanSheet: 2,  twoGoalAdv: 2,  twoGoalDef: -4, abandon: -10, soloKeeperGoalDef: -4},
     {threshold: 400,    win: 9,     draw: -4,   loss: -21,  cleanSheet: 2,  twoGoalAdv: 2,  twoGoalDef: -4, abandon: -10, soloKeeperGoalDef: -4},
     {threshold: 500,    win: 7,     draw: -6,   loss: -23,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -5, abandon: -10, soloKeeperGoalDef: -5},    
-    {threshold: 1000,   win: 5,     draw: -8,   loss: -21,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -5, abandon: -10, soloKeeperGoalDef: -5}
+    {threshold: 600,    win: 5,     draw: -8,   loss: -21,  cleanSheet: 1,  twoGoalAdv: 1,  twoGoalDef: -5, abandon: -10, soloKeeperGoalDef: -5}
 ];
 
 const STATS = [
