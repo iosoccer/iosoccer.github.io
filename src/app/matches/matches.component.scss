@@ -55,7 +55,7 @@ i {
         background: #263238;
         color: white;
         border-radius: 5px;
-        margin: 15px 0;
+        margin: 10px 0;
         padding: 0 5px;
 
         .mmr {
@@ -63,26 +63,9 @@ i {
             color: white;
             font-size: 0.7em;
 
-            .average {
+            .average-mmr {
                 padding: 1px 3px;
                 color: #CFD8DC;
-            }
-
-            .change {
-                background: #C62828;
-                border-radius: 3px;
-                padding: 0 7px;
-                text-align: center;
-                font-weight: bold;
-                font-style: italic;
-
-                &.positive {
-                    background: #2E7D32;
-
-                    &::before {
-                        content: '+'
-                    }
-                }
             }
         }
 
@@ -138,44 +121,85 @@ i {
                     flex-direction: row-reverse;
                 }
             }
+        }
+    }
 
-            .player {
-                display: flex;
-                align-items: center;
+    .mmr-change {
+        display: inline-block;
+        color: white;
+        background: #C62828;
+        border-radius: 3px;
+        width: 40px;
+        text-align: center;
+        font-weight: bold;
+        font-style: italic;
 
-                .mmr {
-                    background: #ECEFF1;
-                    color: #546E7A;
-                    border-radius: 3px;
-                    padding: 3px 5px 3px 3px;
-                    width: 40px;
-                    text-align: right;
-                    font-weight: bold;
-                    font-size: 0.9em;
-                }
+        &.positive {
+            background: #2E7D32;
 
-                .position {
-                    width: 20px;
-                    font-weight: bold;
-                    font-size: 0.75em;
-                    text-align: center;
-                    margin: 0 5px;
-                }
+            &::before {
+                content: '+'
+            }
+        }
 
-                .name {
-                    margin: 0 5px;
-                }
+        &.zero {
+            background: #FF8F00;
+        
+            &::before {
+                content: '±'
+            } 
+        }
+    }
 
-                .goals {
+    .player {
+        display: flex;
+        align-items: center;
 
-                    i {
-                        margin: 0 1px;
-                    }
-                }
-                
-                &:not(:first-child) {
-                    margin-top: 5px;
-                }
+        .solo-mmr {
+            background: #ECEFF1;
+            color: #546E7A;
+            border-radius: 3px;
+            padding: 2px 5px 2px 2px;
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .position {
+            width: 20px;
+            font-weight: bold;
+            font-size: 0.75em;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .name {
+            margin: 0 5px;
+        }
+
+        .goals {
+
+            i {
+                margin: 0 1px;
+            }
+        }
+        
+        &:not(:first-child) {
+            margin-top: 5px;
+        }
+    }
+
+    .solo-keeper {
+        display: flex;
+        justify-content: center;
+
+        .player {
+            
+            .mmr-change {
+                font-size: 0.9em;
+                padding: 2px 0;
+                width: 35px;
             }
         }
     }

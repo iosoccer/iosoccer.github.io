@@ -26,7 +26,7 @@ export class StatsService {
 
       let knownPlayer = PLAYERS.find(x => x.steamId == data.steamId);
       let name = knownPlayer && knownPlayer.name || data.name;
-      let stats = new PlayerMmrStats(data.mmr, data.matches, data.wins, data.draws, data.losses, data.goals, data.conceded, data.cleanSheets);
+      let stats = new PlayerMmrStats(data.mmr, data.matches, data.wins, data.draws, data.losses, data.goals, data.conceded, data.cleanSheets, data.soloKeeperMatches);
 
       let player = new Player(data.steamId, name, stats);
 
@@ -49,21 +49,32 @@ export class StatsService {
       });
     });
 
-    this.matches = STATISTICS.matches.map(match => {
+    this.matches = STATISTICS.matches.map(matchData => {
+
+      let soloKeeper;
 
       let teams = ['home', 'away'].map(teamName => {
 
-        let playerMatchStats = match.teams[teamName].players.map(teamPlayer => {
+        let playerMatchStats = matchData.teams[teamName].players.map(teamPlayer => {
           let player = this.players.find(x => x.steamId == teamPlayer.steamId);
-          return new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals, teamPlayer.position, teamPlayer.isSoloKeeper);
-        });
+          let stats = new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals, teamPlayer.position, teamPlayer.mmrChange, teamPlayer.isSoloKeeper);
 
-        let team = match.teams[teamName];
+          if (teamPlayer.isSoloKeeper) {
+            soloKeeper = stats;
+            return null;
+          } else {
+            return stats;
+          }
+        }).filter(player => player);
+
+        let team = matchData.teams[teamName];
 
         return new MatchTeam('Mix', team.goals, team.firstHalfGoals, team.avgMmr, team.mmrChange, playerMatchStats);
       })
 
-      return new Match(teams[0], teams[1], match.startTime, match.endTime);
+      let match = new Match(teams[0], teams[1], matchData.startTime, matchData.endTime);
+      if (soloKeeper) match.soloKeeper = soloKeeper;
+      return match;
     });
   }
 

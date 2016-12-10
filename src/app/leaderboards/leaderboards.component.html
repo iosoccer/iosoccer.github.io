@@ -17,9 +17,10 @@
       <span class="wins">Wins</span>
       <span class="draws">Draws</span>
       <span class="losses">Losses</span>
-      <span class="goals">Ø Team Goals</span>
+      <span class="goals">Ø Team<br>Goals</span>
       <span class="conceded">Ø Team Conceded</span>
-      <span class="clean-sheets">Ø Team Clean Sheets</span>
+      <span class="clean-sheets">Ø Team<br>Clean Sheets</span>
+      <span class="solo-keeper-matches">Solo GK Matches</span>
     </div>
 
     <div *ngFor="let player of playerGrouping.players; let rank = index" class="player">
@@ -34,6 +35,7 @@
       <span class="goals">{{(player.mmrStats.goals / player.mmrStats.matches).toFixed(1)}}</span>
       <span class="conceded">{{(player.mmrStats.conceded / player.mmrStats.matches).toFixed(1)}}</span>
       <span class="clean-sheets">{{(player.mmrStats.cleanSheets / player.mmrStats.matches).toFixed(1)}}</span>
+      <span class="solo-keeper-matches">{{player.mmrStats.soloKeeperMatches}}</span>
     </div>
 
     <div class="mmr-range">

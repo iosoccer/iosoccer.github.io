@@ -124,7 +124,8 @@ matchFiles.forEach(fileName => {
                 matches: 0,
                 wins: 0,
                 draws: 0,
-                losses: 0
+                losses: 0,
+                soloKeeperMatches: 0
             };
         }
 
@@ -138,15 +139,23 @@ matchFiles.forEach(fileName => {
         }
 
         totalData.name = player.info.name;
-        totalData.matches += 1;
 
-        if (matchData.teams[team].result == MatchResult.WIN)
-            totalData.wins += 1
-        else if (matchData.teams[team].result == MatchResult.LOSS)
-            totalData.losses += 1
-        else
-            totalData.draws += 1;
+        if (isSoloKeeper) {
 
+            totalData.soloKeeperMatches += 1;
+
+        } else {
+
+            totalData.matches += 1;
+
+            if (matchData.teams[team].result == MatchResult.WIN)
+                totalData.wins += 1
+            else if (matchData.teams[team].result == MatchResult.LOSS)
+                totalData.losses += 1
+            else
+                totalData.draws += 1;
+        }
+   
         totalData.cleanSheets = (totalData.cleanSheets || 0);
 
         if (matchData.teams[opponent].goals == 0)
@@ -210,20 +219,27 @@ matchFiles.forEach(fileName => {
 
             if (player.isSoloKeeper) {
 
-                let soloMmrChange = SOLO_KEEEPER_START_POINTS;
+                let oldMmrChange = player.mmrChange || 0;
+
+                player.mmrChange = SOLO_KEEEPER_START_POINTS;
 
                 if (matchData.teams[opponent].firstHalfGoals == 0)
-                    soloMmrChange += points.cleanSheet;
+                    player.mmrChange += points.cleanSheet;
 
                 if (matchData.teams[opponent].goals - matchData.teams[opponent].firstHalfGoals == 0)
-                    soloMmrChange += points.cleanSheet;
+                    player.mmrChange += points.cleanSheet;
 
-                soloMmrChange += matchData.teams[opponent].goals * points.soloKeeperGoalDef;
+                player.mmrChange += matchData.teams[opponent].goals * points.soloKeeperGoalDef;
 
-                playerData[player.steamId].mmr += soloMmrChange;
+                playerData[player.steamId].mmr += player.mmrChange;
+
+                player.mmrChange += oldMmrChange;                
                     
             } else {
-                playerData[player.steamId].mmr += mmrChange;
+
+                player.mmrChange = mmrChange;
+                playerData[player.steamId].mmr += player.mmrChange;
+                
             }
 
             // Abandon points
@@ -238,8 +254,6 @@ matchFiles.forEach(fileName => {
 let playerDataList = Object.keys(playerData).map(steamId => playerData[steamId]).sort((a, b) => b.mmr - a.mmr);
 
 let content = `
-import { Player } from './player';
-
 export const STATISTICS = {
     "players": ${JSON.stringify(playerDataList)},    
     "matches": ${JSON.stringify(matchDataList)}

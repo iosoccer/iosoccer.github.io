@@ -140,11 +140,13 @@
         padding: 0 10px;
 
         &.header {
+            height: 40px;
             align-items: flex-end;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.7em;
             line-height: 1.0em;
+            letter-spacing: -0.5px;
             margin-bottom: 10px;
             padding: 10px;
 
@@ -189,17 +191,23 @@
             text-align: center;
             color: black;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
-        .matches, .wins, .draws, .losses, .goals, .conceded, .clean-sheets {
-            width: 80px;
+        .matches, .wins, .draws, .losses, .goals, .conceded, .clean-sheets, .solo-keeper-matches {
             text-align: center;
             color: #546E7A;
         }
 
+        .matches, .wins, .draws, .losses, .goals, .conceded, .clean-sheets {
+            width: 80px;
+        }
+
         .matches, .wins, .draws, .losses {
             width: 55px;
+        }
+
+        .solo-keeper-matches {
+            width: 70px;
         }
     }
 }

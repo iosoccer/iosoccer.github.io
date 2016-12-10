@@ -27,5 +27,4 @@ export class MatchesComponent implements OnInit {
   getPlayerGoals(playerMatchStats) {
     return Array(playerMatchStats.goals).fill(1);
   }
-
 }

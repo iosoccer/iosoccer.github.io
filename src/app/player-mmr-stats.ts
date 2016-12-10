@@ -7,8 +7,9 @@ export class PlayerMmrStats {
     goals: number
     conceded: number
     cleanSheets: number
+    soloKeeperMatches: number
 
-    constructor(mmr: number, matches: number, wins: number, draws: number, losses: number, goals: number, conceded: number, cleanSheets: number) {
+    constructor(mmr: number, matches: number, wins: number, draws: number, losses: number, goals: number, conceded: number, cleanSheets: number, soloKeeperMatches: number) {
         this.mmr = mmr;
         this.matches = matches;
         this.wins = wins;
@@ -17,5 +18,6 @@ export class PlayerMmrStats {
         this.goals = goals;
         this.conceded = conceded;
         this.cleanSheets = cleanSheets;
+        this.soloKeeperMatches = soloKeeperMatches;
     }
 }

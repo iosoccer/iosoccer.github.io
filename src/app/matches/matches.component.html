@@ -1,14 +1,16 @@
 <ol class="matches">
   <li *ngFor="let match of matches; let i = index" class="match">
+
     <div class="date">
       <span><i class="date-icon fa fa-calendar-o"></i>{{match.startTime | date:'y/MM/dd'}}</span>
       <span>#{{matches.length - i}}</span>
       <span><i class="time-icon fa fa-clock-o"></i>{{match.startTime | date:'HH:mm'}} - {{match.endTime | date:'HH:mm'}}</span>
     </div>
+
     <div class="score">
       <span class="mmr">
-        <span class="average">{{match.homeTeam.avgMmr}}</span>
-        <span class="change" [ngClass]="{positive: match.homeTeam.mmrChange >= 0}">{{match.homeTeam.mmrChange}}</span>
+        <span class="average-mmr">{{match.homeTeam.avgMmr}}</span>
+        <span class="mmr-change" [ngClass]="{positive: match.homeTeam.mmrChange > 0, zero: match.homeTeam.mmrChange == 0}">{{match.homeTeam.mmrChange}}</span>
       </span>
       <span class="team-name">{{match.homeTeam.name}}</span>
       <div class="goals">
@@ -25,20 +27,30 @@
       </div>
       <span class="team-name">{{match.awayTeam.name}}</span>
       <span class="mmr">
-        <span class="change" [ngClass]="{positive: match.awayTeam.mmrChange >= 0}">{{match.awayTeam.mmrChange}}</span>
-        <span class="average">{{match.awayTeam.avgMmr}}</span>
+        <span class="mmr-change" [ngClass]="{positive: match.awayTeam.mmrChange > 0, zero: match.awayTeam.mmrChange == 0}">{{match.awayTeam.mmrChange}}</span>
+        <span class="average-mmr">{{match.awayTeam.avgMmr}}</span>
       </span>
     </div>
+
     <div class="teams">
       <ol *ngFor="let team of [match.homeTeam, match.awayTeam]" class="team">
         <li *ngFor="let playerMatchStats of team.playerMatchStats" class="player">
           <span class="position">{{playerMatchStats.position}}</span>
-          <span class="mmr">{{playerMatchStats.mmr}}</span>
+          <span class="solo-mmr">{{playerMatchStats.mmr}}</span>
           <span class="name">{{playerMatchStats.player.name}}</span>
           <span class="goals" *ngIf="playerMatchStats.goals"><i *ngFor="let goal of getPlayerGoals(playerMatchStats)" class="fa fa-soccer-ball-o"></i></span>
-          <i class="solo-keeper" *ngIf="playerMatchStats.isSoloKeeper" class="fa fa-support"></i>
         </li>
       </ol>
     </div>
+
+    <div class="solo-keeper" *ngIf="match.soloKeeper">
+      <div class="player">
+        <span class="position">{{match.soloKeeper.position}}</span>
+        <span class="solo-mmr">{{match.soloKeeper.mmr}}</span>
+        <span class="name">{{match.soloKeeper.player.name}}</span>
+        <span class="mmr-change" [ngClass]="{positive: match.soloKeeper.mmrChange > 0, zero: match.soloKeeper.mmrChange == 0}">{{match.soloKeeper.mmrChange}}</span>
+      </div>
+    </div>
+
   </li>
 </ol>
