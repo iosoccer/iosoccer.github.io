@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { CommunityComponent } from './community/community.component';
 import { ClubsComponent } from './clubs/clubs.component';
 import { FooterComponent } from './footer/footer.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     CommunityComponent,
     ClubsComponent,
-    FooterComponent
+    FooterComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
