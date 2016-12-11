@@ -6,6 +6,7 @@ import { BlogComponent }            from './blog/blog.component';
 import { CommunityComponent }       from './community/community.component';
 import { ClubsComponent }           from './clubs/clubs.component';
 import { InfoComponent }            from './info/info.component';
+import { DownloadComponent }        from './download/download.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/leaderboards', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'community', component: CommunityComponent },
   { path: 'clubs', component: ClubsComponent },
-  { path: 'info', component: InfoComponent }
+  { path: 'info', component: InfoComponent },
+  { path: 'download', component: DownloadComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
