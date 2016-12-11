@@ -166,19 +166,17 @@ matchFiles.forEach(fileName => {
                 totalData.losses += 1
             else
                 totalData.draws += 1;
+
+            if (matchData.teams[opponent].goals == 0)
+                totalData.cleanSheets = (totalData.cleanSheets || 0) + 1;
+
+            ['goals'].forEach(stat => {
+                data[stat] = player.matchPeriodData.reduce((statSum, periodData) => statSum + periodData.statistics[indices[stat]], 0);
+            });
+
+            totalData.goals = (totalData.goals || 0) + matchData.teams[team].goals;
+            totalData.conceded = (totalData.conceded || 0) + matchData.teams[opponent].goals;
         }
-   
-        totalData.cleanSheets = (totalData.cleanSheets || 0);
-
-        if (matchData.teams[opponent].goals == 0)
-             totalData.cleanSheets += 1;
-
-        ['goals'].forEach(stat => {
-            data[stat] = player.matchPeriodData.reduce((statSum, periodData) => statSum + periodData.statistics[indices[stat]], 0);
-        });
-
-        totalData.goals = (totalData.goals || 0) + matchData.teams[team].goals;
-        totalData.conceded = (totalData.conceded || 0) + matchData.teams[opponent].goals;
 
         matchData.teams[team].players.push(data);
 
