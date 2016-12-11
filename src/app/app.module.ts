@@ -13,6 +13,7 @@ import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { CommunityComponent } from './community/community.component';
 import { ClubsComponent } from './clubs/clubs.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClubsComponent } from './clubs/clubs.component';
     BlogComponent,
     HeaderComponent,
     CommunityComponent,
-    ClubsComponent
+    ClubsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

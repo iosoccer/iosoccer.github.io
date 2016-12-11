@@ -1,9 +1,15 @@
+<div class="pages">
+  <a [ngClass]="{hidden: currentPage === 1}" routerLink="/matches" [queryParams]="{page: currentPage - 1}" class="fa fa-chevron-left"></a>
+  <a *ngFor="let page of pages" routerLink="/matches" [queryParams]="{page: page}" [ngClass]="{active: page === currentPage}">{{page}}</a>
+  <a [ngClass]="{hidden: currentPage === pages.length}" routerLink="/matches" [queryParams]="{page: currentPage + 1}" class="fa fa-chevron-right"></a>
+</div>
+
 <ol class="matches">
   <li *ngFor="let match of matches; let i = index" class="match">
 
     <div class="date">
       <span><i class="date-icon fa fa-calendar-o"></i>{{match.startTime | date:'y/MM/dd'}}</span>
-      <span>#{{matches.length - i}}</span>
+      <span>#{{matchCount - (i + ((currentPage - 1) * matchesPerPage))}}</span>
       <span><i class="time-icon fa fa-clock-o"></i>{{match.startTime | date:'HH:mm'}} - {{match.endTime | date:'HH:mm'}}</span>
     </div>
 
@@ -54,3 +60,9 @@
 
   </li>
 </ol>
+
+<div class="pages">
+  <a [ngClass]="{hidden: currentPage === 1}" routerLink="/matches" [queryParams]="{page: currentPage - 1}" class="fa fa-chevron-left"></a>
+  <a *ngFor="let page of pages" routerLink="/matches" [queryParams]="{page: page}" [ngClass]="{active: page === currentPage}">{{page}}</a>
+  <a [ngClass]="{hidden: currentPage === pages.length}" routerLink="/matches" [queryParams]="{page: currentPage + 1}" class="fa fa-chevron-right"></a>
+</div>

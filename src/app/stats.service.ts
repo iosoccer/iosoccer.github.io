@@ -89,4 +89,8 @@ export class StatsService {
   getMatchStats(): Match[] {
     return this.matches;
   }
+
+  getMatches(): Promise<Match[]> {
+    return Promise.resolve(this.matches);
+  }
 }
