@@ -6,7 +6,7 @@ import { MatchTeam } from '../match-team';
 import { Match } from '../match';
 import { PlayerMatchStats } from '../player-match-stats';
 import { StatsService } from '../stats.service';
-import 'rxjs/add/operator/switchmap';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'ios-matches',

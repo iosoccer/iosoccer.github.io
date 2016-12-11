@@ -26,7 +26,8 @@ export class StatsService {
 
       let knownPlayer = PLAYERS.find(x => x.steamId == data.steamId);
       let name = knownPlayer && knownPlayer.name || data.name;
-      let stats = new PlayerMmrStats(data.mmr, data.matches, data.wins, data.draws, data.losses, data.goals, data.conceded, data.cleanSheets, data.soloKeeperMatches);
+      let stats = new PlayerMmrStats(data.mmr, data.matches, data.wins, data.draws, data.losses,
+                                     data.goals, data.conceded, data.cleanSheets, data.soloKeeperMatches);
 
       let player = new Player(data.steamId, name, stats);
 
@@ -57,7 +58,8 @@ export class StatsService {
 
         let playerMatchStats = matchData.teams[teamName].players.map(teamPlayer => {
           let player = this.players.find(x => x.steamId == teamPlayer.steamId);
-          let stats = new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals, teamPlayer.position, teamPlayer.mmrChange, teamPlayer.isSoloKeeper);
+          let stats = new PlayerMatchStats(player, teamPlayer.mmr, teamPlayer.goals, teamPlayer.position,
+                                           teamPlayer.mmrChange, teamPlayer.isSoloKeeper);
 
           if (teamPlayer.isSoloKeeper) {
             soloKeeper = stats;
@@ -73,7 +75,9 @@ export class StatsService {
       })
 
       let match = new Match(teams[0], teams[1], matchData.startTime, matchData.endTime);
-      if (soloKeeper) match.soloKeeper = soloKeeper;
+      if (soloKeeper) {
+        match.soloKeeper = soloKeeper;
+      }
       return match;
     });
   }
@@ -82,8 +86,8 @@ export class StatsService {
     return this.players;
   }
 
-  getClubs(): Club[] {
-    return this.clubs;
+  getClubs(): Promise<Club[]> {
+    return Promise.resolve(this.clubs);
   }
 
   getMatches(): Promise<Match[]> {

@@ -7,6 +7,7 @@ import { CommunityComponent }       from './community/community.component';
 import { ClubsComponent }           from './clubs/clubs.component';
 import { InfoComponent }            from './info/info.component';
 import { DownloadComponent }        from './download/download.component';
+import { ClubComponent }            from './club/club.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/leaderboards', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'community', component: CommunityComponent },
   { path: 'clubs', component: ClubsComponent },
   { path: 'info', component: InfoComponent },
-  { path: 'download', component: DownloadComponent }
+  { path: 'download', component: DownloadComponent },
+  { path: 'clubs/:id', component: ClubComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Club } from '../club';
-import { StatsService } from '../stats.service';
+import { ClubService } from '../club.service';
 
 @Component({
   selector: 'ios-clubs',
   templateUrl: './clubs.component.html',
   styleUrls: ['./clubs.component.scss'],
-  providers: [StatsService]
+  providers: [ClubService]
 })
 export class ClubsComponent implements OnInit {
 
   clubs: Club[]
 
-  constructor(private statsService: StatsService) { }
+  constructor(private clubService: ClubService) { }
 
   ngOnInit() {
-    this.clubs = this.statsService.getClubs();
+    this.clubService.getClubs().then(clubs => this.clubs = clubs);
   }
 
 }

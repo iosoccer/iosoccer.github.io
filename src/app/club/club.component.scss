@@ -1,0 +1,66 @@
+:host {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.club {
+    display: flex;
+    height: 250px;
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .code {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .crest {
+            height: 128px;
+
+            img {
+                max-height: 100%;
+            }
+        }
+    }
+
+    .right {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+
+        .full-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .players {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 15px;
+
+            .player {
+                display: flex;
+                align-items: center;
+                margin: 3px 0;
+                
+                .role {
+                    width: 30px;
+                    text-align: center;
+                }
+
+                .name {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}

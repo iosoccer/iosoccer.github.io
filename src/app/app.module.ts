@@ -16,6 +16,9 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { FooterComponent } from './footer/footer.component';
 import { InfoComponent } from './info/info.component';
 import { DownloadComponent } from './download/download.component';
+import { ClubComponent } from './club/club.component';
+import { StatsService } from './stats.service';
+import { ClubService } from './club.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { DownloadComponent } from './download/download.component';
     ClubsComponent,
     FooterComponent,
     InfoComponent,
-    DownloadComponent
+    DownloadComponent,
+    ClubComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { DownloadComponent } from './download/download.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [StatsService, ClubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

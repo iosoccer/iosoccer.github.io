@@ -34,7 +34,11 @@
 
     <div *ngFor="let player of playerGrouping.players; let rank = index" class="player">
       <span class="rank">{{playerGrouping.startIndex + rank + 1}}.</span>
-      <span class="club"><img *ngIf="player.club" src="{{player.club.crest}}"></span>
+      <span class="club">
+        <a *ngIf="player.club" [routerLink]="['/clubs', player.club.id]" title="{{player.club.fullName}}">
+        <img src="{{player.club.crest}}">
+        </a>
+      </span>
       <span class="name">{{player.name}}</span>
       <span class="mmr">{{player.mmrStats.mmr}}</span>
       <span class="matches">{{player.mmrStats.matches}}</span>
