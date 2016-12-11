@@ -86,10 +86,6 @@ export class StatsService {
     return this.clubs;
   }
 
-  getMatchStats(): Match[] {
-    return this.matches;
-  }
-
   getMatches(): Promise<Match[]> {
     return Promise.resolve(this.matches);
   }

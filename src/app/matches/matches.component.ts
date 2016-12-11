@@ -41,8 +41,8 @@ export class MatchesComponent implements OnInit {
       })
       .subscribe(matches => {
         this.matchCount = matches.length;
-        this.matches = matches.slice(this.currentPage - 1, this.currentPage - 1 + this.matchesPerPage);
-        this.pages = Array(Math.trunc(this.matchCount / this.matchesPerPage)).fill(1).map((x, i) => i + 1);
+        this.matches = matches.slice((this.currentPage - 1) * this.matchesPerPage, (this.currentPage - 1) * this.matchesPerPage + this.matchesPerPage);
+        this.pages = Array(Math.ceil(this.matchCount / this.matchesPerPage)).fill(1).map((x, i) => i + 1);
       });
   }
 

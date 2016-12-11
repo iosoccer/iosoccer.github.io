@@ -9,7 +9,7 @@
 
     <div class="date">
       <span><i class="date-icon fa fa-calendar-o"></i>{{match.startTime | date:'y/MM/dd'}}</span>
-      <span>#{{matchCount - (i + ((currentPage - 1) * matchesPerPage))}}</span>
+      <span>#{{matchCount - (currentPage - 1) * matchesPerPage - i}}</span>
       <span><i class="time-icon fa fa-clock-o"></i>{{match.startTime | date:'HH:mm'}} - {{match.endTime | date:'HH:mm'}}</span>
     </div>
 
