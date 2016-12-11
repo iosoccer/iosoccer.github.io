@@ -40,6 +40,7 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:0:20517562',      name: 'Bullet'},	
 	{steamId: 'STEAM_0:0:31533268',      name: 'Destran',			clubId: 4},
 	{steamId: 'STEAM_0:1:36920580',      name: 'Hakan'},	
+	{steamId: 'STEAM_0:1:190288637',     name: 'Aryan (1)'},
 	{steamId: 'STEAM_0:1:318147',     	 name: 'Wilmots'},	
 	{steamId: 'STEAM_0:1:3007736',     	 name: 'SaliX',				clubId: 1},	
 	{steamId: 'STEAM_0:1:121871',      	 name: 'yvus',				clubId: 3},	
@@ -49,13 +50,13 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:1:3131808',       name: 'J.B3',				clubId: 4},
 	{steamId: 'STEAM_0:0:6789707',       name: 'Zapdos',			clubId: 3},	
 	{steamId: 'STEAM_0:0:10372338',      name: 'Ashleh',			clubId: 1},	
-	{steamId: 'STEAM_0:1:1975079',       name: 'meany',				clubId: 4},	
+	{steamId: 'STEAM_0:1:1975079',       name: 'meany',				clubId: 2},	
 	{steamId: 'STEAM_0:1:13358437',      name: 'Steve'},	
 	{steamId: 'STEAM_0:1:5524635',       name: 'Larsson',			clubId: 1},	
 	{steamId: 'STEAM_0:0:8029326',       name: 'Amplitech',			clubId: 1},	
 	{steamId: 'STEAM_0:1:629880',      	 name: 'bc',				clubId: 1},
 	{steamId: 'STEAM_0:1:37984806',      name: 'Dev',				clubId: 2},	
-	{steamId: 'STEAM_0:1:10824911',      name: 'Hiei',				clubId: 4},	
+	{steamId: 'STEAM_0:1:10824911',      name: 'Hiei',				clubId: 2},	
 	{steamId: 'STEAM_0:1:3280605',       name: 'skum',				clubId: 3},
 	{steamId: 'STEAM_0:1:11670038',      name: 'Eoin',				clubId: 1},	
 	{steamId: 'STEAM_0:1:25547728',      name: 'yak'},	
@@ -64,7 +65,7 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:0:54255',         name: 'Thinge'},	
 	{steamId: 'STEAM_0:1:7116806',       name: 'Lua',				clubId: 1},	
 	{steamId: 'STEAM_0:0:46719805',      name: 'khaledinho'},	
-	{steamId: 'STEAM_0:1:190288637',     name: 'Aryan',				clubId: 2},	
+	{steamId: 'STEAM_0:0:25699948',      name: 'Aryan',				clubId: 2},	
 	{steamId: 'STEAM_0:1:27049702',      name: 'GaMs',				clubId: 3},
 	{steamId: 'STEAM_0:0:1608509',       name: 'Orius'},	
 	{steamId: 'STEAM_0:1:7605279',       name: 'Demented'},	
@@ -79,9 +80,9 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:0:31446984',	 	 name: 'Kaiser'},	
 	{steamId: 'STEAM_0:0:3829635',	 	 name: 'Km',				clubId: 2},
 	{steamId: 'STEAM_0:1:10938960',	 	 name: 'roq',				clubId: 2},
-	{steamId: 'STEAM_0:1:13281024',	 	 name: 'Quality'},	
-	{steamId: 'STEAM_0:1:14849456',	 	 name: 'shagwa',			clubId: 2,		isCaptain: true}
-	
+	{steamId: 'STEAM_0:1:13281024',	 	 name: 'Quality'},
+	{steamId: 'STEAM_0:1:14849456',	 	 name: 'shagwa',			clubId: 2,		isCaptain: true},
+	{steamId: 'STEAM_0:0:9347196',	 	 name: 'NightFire'}
 ];
 
 export { CLUBS, PLAYERS };
