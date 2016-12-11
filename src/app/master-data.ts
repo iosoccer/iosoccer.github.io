@@ -65,7 +65,7 @@ const PLAYERS: PlayerData[] = [
 	{steamId: 'STEAM_0:1:7116806',       name: 'Lua',				clubId: 1},	
 	{steamId: 'STEAM_0:0:46719805',      name: 'khaledinho'},	
 	{steamId: 'STEAM_0:1:190288637',     name: 'Aryan',				clubId: 2},
-	{steamId: 'STEAM_0:0:25699948',      name: 'Aryan (1)',
+	{steamId: 'STEAM_0:0:25699948',      name: 'Aryan (1)'},
 	{steamId: 'STEAM_0:1:27049702',      name: 'GaMs',				clubId: 3},
 	{steamId: 'STEAM_0:0:1608509',       name: 'Orius'},	
 	{steamId: 'STEAM_0:1:7605279',       name: 'Demented'},	
