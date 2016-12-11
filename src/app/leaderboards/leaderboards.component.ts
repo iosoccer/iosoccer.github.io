@@ -4,12 +4,10 @@ import { StatsService } from '../stats.service';
 import { MmrBracket } from '../mmr-bracket';
 import { MMR_BRACKETS } from '../mmr-brackets';
 
-const MINIMUM_MATCH_COUNT = 5;
-
 class PlayerGrouping {
-  mmrBracket: MmrBracket
-  players: Player[]
-  startIndex: number
+  mmrBracket: MmrBracket;
+  players: Player[];
+  startIndex: number;
 
   constructor(mmrBracket: MmrBracket, players: Player[], startIndex) {
     this.mmrBracket = mmrBracket;
@@ -26,13 +24,16 @@ class PlayerGrouping {
 })
 export class LeaderboardsComponent implements OnInit {
 
-  playerGroupings: PlayerGrouping[]
+  playerGroupings: PlayerGrouping[];
+  minMatchCount: number;
 
   constructor(private statsService: StatsService) {
 
   }
 
   ngOnInit() {
+
+    this.minMatchCount = 5;
 
     this.playerGroupings = MMR_BRACKETS.map((mmrBracket, i) => {
       let prevThreshold = i > 0 ? MMR_BRACKETS[i - 1].threshold + 1 : 0;
@@ -41,7 +42,7 @@ export class LeaderboardsComponent implements OnInit {
 
     this.statsService.getPlayerStats().forEach(player => {
 
-      if (player.mmrStats.matches + player.mmrStats.soloKeeperMatches < MINIMUM_MATCH_COUNT) {
+      if (player.mmrStats.matches + player.mmrStats.soloKeeperMatches < this.minMatchCount) {
         return;
       }
       let grouping = this.playerGroupings.find(playerGrouping => playerGrouping.mmrBracket.threshold >= player.mmrStats.mmr);

@@ -5,6 +5,23 @@
     align-items: center;
 }
 
+.info {
+    width: 500px;
+    font-size: 0.9em;
+    display: flex;
+    margin-bottom: 30px;
+
+    .tag {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    p {
+        flex: 1;
+        margin: 0;
+    }
+}
+
 .player-groupings {
     display: flex;
     flex-direction: column;

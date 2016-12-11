@@ -1,4 +1,13 @@
-<div class="player-groupings">
+<section class="info card">
+  <span class="tag">Info</span>
+  <p>
+    The MMR algorithm is still in active development.<br>
+    Changes will be retroactively applied to all played matches.<br>
+    Players must have at least {{minMatchCount}} matches to appear on the leaderboards.
+  </p>
+</section>
+
+<section class="player-groupings">
 
   <div *ngFor="let playerGrouping of playerGroupings; let i = index" class="player-grouping {{playerGrouping.mmrBracket.name}}">
 
@@ -46,4 +55,4 @@
 
   </div>
 
-</div>
+</section>
