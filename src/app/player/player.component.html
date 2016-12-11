@@ -1,7 +1,15 @@
-<section *ngIf="player" class="player card">
-  <div class="profile">
-    <span class="name">{{player.name}}</span> - 
-    <span class="steamId">{{player.steamId}}</span> - 
-    <span class="club">{{player.club.fullName}}</span>
+<section *ngIf="player" class="player">
+
+  <div class="profile card">
+    <span class="name">{{player.name}}</span>
+    <span class="steamId">{{player.steamId}}</span>
+    <a *ngIf="player.club" [routerLink]="['/clubs', player.club.id]" class="club">
+      <img src="{{player.club.crest}}">
+      <span class="name">{{player.club.fullName}}</span>
+    </a>
+  </div>
+
+  <div class="stats card">
+    Stats
   </div>
 </section>

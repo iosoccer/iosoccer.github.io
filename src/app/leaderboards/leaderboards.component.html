@@ -36,7 +36,7 @@
       <span class="rank">{{playerGrouping.startIndex + rank + 1}}.</span>
       <span class="club">
         <a *ngIf="player.club" [routerLink]="['/clubs', player.club.id]" title="{{player.club.fullName}}">
-        <img src="{{player.club.crest}}">
+          <img src="{{player.club.crest}}">
         </a>
       </span>
       <a class="name" [routerLink]="['/players', player.id]">{{player.name}}</a>

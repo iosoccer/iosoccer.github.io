@@ -19,7 +19,6 @@ export class PlayerComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    
     this.route.params
       .switchMap((params: Params) => this.playerService.getPlayer(+params['id']))
       .subscribe(player => this.player = player);

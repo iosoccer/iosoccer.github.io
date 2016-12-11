@@ -188,12 +188,15 @@
 
         .club {
             width: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             
-            img {
-                height: 24px;
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 24px;
+                }
             }
         }
 
