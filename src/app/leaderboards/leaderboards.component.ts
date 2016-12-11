@@ -4,6 +4,8 @@ import { StatsService } from '../stats.service';
 import { MmrBracket } from '../mmr-bracket';
 import { MMR_BRACKETS } from '../mmr-brackets';
 
+const MINIMUM_MATCH_COUNT = 5;
+
 class PlayerGrouping {
   mmrBracket: MmrBracket
   players: Player[]
@@ -38,8 +40,12 @@ export class LeaderboardsComponent implements OnInit {
     });
 
     this.statsService.getPlayerStats().forEach(player => {
+
+      if (player.mmrStats.matches + player.mmrStats.soloKeeperMatches < MINIMUM_MATCH_COUNT) {
+        return;
+      }
       let grouping = this.playerGroupings.find(playerGrouping => playerGrouping.mmrBracket.threshold >= player.mmrStats.mmr);
-      grouping.players.push(player);     
+      grouping.players.push(player);
     });
 
     this.playerGroupings.reverse();
@@ -54,4 +60,15 @@ export class LeaderboardsComponent implements OnInit {
     return Array(this.playerGroupings.length - index).fill(1);
   }
 
+  getAvgGoals(player: Player) {
+    return (player.mmrStats.goals / Math.max(1, player.mmrStats.matches)).toFixed(1);
+  }
+
+  getAvgConceded(player: Player) {
+    return (player.mmrStats.conceded / Math.max(1, player.mmrStats.matches)).toFixed(1);
+  }
+
+  getAvgCleanSheets(player: Player) {
+    return (player.mmrStats.cleanSheets / Math.max(1, player.mmrStats.matches)).toFixed(1);
+  }
 }

@@ -32,9 +32,9 @@
       <span class="wins">{{player.mmrStats.wins}}</span>
       <span class="draws">{{player.mmrStats.draws}}</span>
       <span class="losses">{{player.mmrStats.losses}}</span>
-      <span class="goals">{{(player.mmrStats.goals / player.mmrStats.matches).toFixed(1)}}</span>
-      <span class="conceded">{{(player.mmrStats.conceded / player.mmrStats.matches).toFixed(1)}}</span>
-      <span class="clean-sheets">{{(player.mmrStats.cleanSheets / player.mmrStats.matches).toFixed(1)}}</span>
+      <span class="goals">{{getAvgGoals(player)}}</span>
+      <span class="conceded">{{getAvgConceded(player)}}</span>
+      <span class="clean-sheets">{{getAvgCleanSheets(player)}}</span>
       <span class="solo-keeper-matches">{{player.mmrStats.soloKeeperMatches}}</span>
     </div>
 
