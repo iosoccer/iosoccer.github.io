@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const MIN_MATCH_MINUTES = 60;
+const MIN_MATCH_MINUTES = 45;
 
 const START_MMR = 1500;
 
