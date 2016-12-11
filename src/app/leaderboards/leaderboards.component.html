@@ -39,7 +39,7 @@
         <img src="{{player.club.crest}}">
         </a>
       </span>
-      <span class="name">{{player.name}}</span>
+      <a class="name" [routerLink]="['/players', player.id]">{{player.name}}</a>
       <span class="mmr">{{player.mmrStats.mmr}}</span>
       <span class="matches">{{player.mmrStats.matches}}</span>
       <span class="wins">{{player.mmrStats.wins}}</span>

@@ -18,6 +18,8 @@ export class StatsService {
 
   constructor() {
 
+    let playerId = 1;
+
     this.clubs = CLUBS.map(club => {
       return new Club(club.id, club.code, club.shortName, club.fullName, club.crest);
     });
@@ -29,7 +31,7 @@ export class StatsService {
       let stats = new PlayerMmrStats(data.mmr, data.matches, data.wins, data.draws, data.losses,
                                      data.goals, data.conceded, data.cleanSheets, data.soloKeeperMatches);
 
-      let player = new Player(data.steamId, name, stats);
+      let player = new Player(playerId++, data.steamId, name, stats);
 
       if (knownPlayer) {
 
@@ -84,6 +86,10 @@ export class StatsService {
 
   getPlayerStats(): Player[] {
     return this.players;
+  }
+
+  getPlayers(): Promise<Player[]> {
+    return Promise.resolve(this.players);
   }
 
   getClubs(): Promise<Club[]> {

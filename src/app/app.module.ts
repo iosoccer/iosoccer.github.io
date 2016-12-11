@@ -19,6 +19,7 @@ import { DownloadComponent } from './download/download.component';
 import { ClubComponent } from './club/club.component';
 import { StatsService } from './stats.service';
 import { ClubService } from './club.service';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ClubService } from './club.service';
     FooterComponent,
     InfoComponent,
     DownloadComponent,
-    ClubComponent
+    ClubComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
