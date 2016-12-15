@@ -81,7 +81,7 @@ const PLAYERS: PlayerData[] = [
     {steamId: 'STEAM_0:1:190288637',     name: 'Aryan (1)'},
     {steamId: 'STEAM_0:1:27049702',      name: 'GaMs',              clubId: 3},
     {steamId: 'STEAM_0:0:1608509',       name: 'Orius'},    
-    {steamId: 'STEAM_0:1:7605279',       name: 'Demented'},    
+    {steamId: 'STEAM_0:1:7605279',       name: 'Dementei'},    
     {steamId: 'STEAM_0:0:26082793',      name: 'Jase',              clubId: 4},    
     {steamId: 'STEAM_0:1:128662',        name: 'GINIXXX',           clubId: 3},
     {steamId: 'STEAM_0:0:16735574',      name: 'ChouPo',            clubId: 2},    
@@ -99,7 +99,11 @@ const PLAYERS: PlayerData[] = [
     {steamId: 'STEAM_0:1:13587077',      name: 'Termi',             clubId: 2},
     {steamId: 'STEAM_0:0:21008476',      name: 'Xedem',             clubId: 2},
     {steamId: 'STEAM_0:1:15187119',      name: 'CARLEETOS',         clubId: 2},
-    {steamId: 'STEAM_0:0:4968025',       name: 'Quincy',            clubId: 2}
+    {steamId: 'STEAM_0:0:4968025',       name: 'Quincy',            clubId: 2},
+    {steamId: 'STEAM_0:0:6089286',		 name: 'A$AP Burger$'},
+    {steamId: 'STEAM_0:1:25290806',		 name: 'Paw'},
+    {steamId: 'STEAM_0:0:28327390',		 name: 'Simu'},
+    {steamId: 'STEAM_0:0:27678762', 	 name: 'Smithie'}
 ];
 
 export { CLUBS, PLAYERS };
