@@ -100,13 +100,15 @@ const PLAYERS: PlayerData[] = [
     {steamId: 'STEAM_0:0:21008476',      name: 'Xedem',             clubId: 2},
     {steamId: 'STEAM_0:1:15187119',      name: 'CARLEETOS',         clubId: 2},
     {steamId: 'STEAM_0:0:4968025',       name: 'Quincy',            clubId: 2},
-    {steamId: 'STEAM_0:0:6089286',		 name: 'A$AP Burger$'},
+    {steamId: 'STEAM_0:0:6089286',		 name: 'ASAP Keefers'},
     {steamId: 'STEAM_0:1:25290806',		 name: 'Paw',				clubId: 1},
     {steamId: 'STEAM_0:0:28327390',		 name: 'Simu',				clubId: 1},
     {steamId: 'STEAM_0:0:27678762', 	 name: 'Smithie',			clubId: 1},
     {steamId: 'STEAM_0:1:50696312',		 name: 'Agger',				clubId: 1},
     {steamId: 'STEAM_0:1:17519626',		 name: 'Perfect Nich'},
-    {steamId: 'STEAM_0:1:25713334',		 name: 'Cheetah',			clubId: 1}
+    {steamId: 'STEAM_0:1:25713334',		 name: 'Cheetah',			clubId: 1},
+    {steamId: 'STEAM_0:0:18674301',      name: 'Arshavin'},
+    {steamId: 'STEAM_0:0:20748606',      name: 'Rock'}
 ];
 
 export { CLUBS, PLAYERS };
