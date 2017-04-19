@@ -50,7 +50,7 @@ const Team = {
     AWAY: 'away'
 };
 
-const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CM', 'CF', 'LW', 'RW'];
+const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CM', 'LW', 'RW', 'CF'];
 
 let matchDataList = [];
 
