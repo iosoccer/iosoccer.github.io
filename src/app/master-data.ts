@@ -23,7 +23,7 @@ const CLUBS: ClubData[] = [
     {id: 1,     code: 'Chefs',      shortName: 'Chefs',                 fullName: 'Chefs',               crest: 'chefs.png'},
     {id: 2,     code: 'nG',         shortName: 'NextGen',               fullName: 'NextGen',             crest: 'next-gen.png'},
     {id: 3,     code: 'Roby',       shortName: 'Roby Rovers',           fullName: 'Roby Rovers',         crest: 'roby-rovers.png'},
-    {id: 4,     code: 'VS',         shortName: 'Victorious Secret',     fullName: 'Victorious Secret',   crest: 'victorious-secret.png'}
+    {id: 4,     code: 'vcrs',       shortName: 'Victorious',     		fullName: 'Victorious',  		 crest: 'victorious-secret.png'}
 ];
 
 interface PlayerData {
@@ -78,7 +78,6 @@ const PLAYERS: PlayerData[] = [
     {steamId: 'STEAM_0:1:7116806',       name: 'Lua',               clubId: 1},    
     {steamId: 'STEAM_0:0:46719805',      name: 'khaledinho'},    
     {steamId: 'STEAM_0:0:25699948',      name: 'Aryan',             clubId: 2},
-    {steamId: 'STEAM_0:1:190288637',     name: 'Aryan (1)'},
     {steamId: 'STEAM_0:1:27049702',      name: 'GaMs',              clubId: 3},
     {steamId: 'STEAM_0:0:1608509',       name: 'Orius'},    
     {steamId: 'STEAM_0:1:7605279',       name: 'Dementei'},    
@@ -89,7 +88,6 @@ const PLAYERS: PlayerData[] = [
     {steamId: 'STEAM_0:1:7116806',       name: 'Lua',               clubId: 1},
     {steamId: 'STEAM_0:1:3760747',       name: 'zaLir'},    
     {steamId: 'STEAM_0:0:13346995',      name: 'panther',           clubId: 4},    
-    {steamId: 'STEAM_0:1:180695954',     name: 'panther (1)'},    
     {steamId: 'STEAM_0:0:31446984',      name: 'Kaiser'},    
     {steamId: 'STEAM_0:0:3829635',       name: 'Km',                clubId: 2},
     {steamId: 'STEAM_0:1:10938960',      name: 'roq',               clubId: 2},
